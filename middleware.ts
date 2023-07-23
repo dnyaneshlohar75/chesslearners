@@ -21,7 +21,7 @@
 
 import { NextRequest, NextResponse } from 'next/server'
  
-export function middleware(request) {
+export function middleware(request:Request) {
 
     const origin = request.headers.get('origin');
     const response = NextResponse.next();
