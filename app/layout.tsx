@@ -7,6 +7,9 @@ import { useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { SlMenu } from 'react-icons/sl'
+import Dialog from '@mui/material/Dialog';
+import { FiX } from 'react-icons/fi'
+import LoginForm from './components/LoginForm';
 
 export default function RootLayout({
   children,
@@ -15,9 +18,13 @@ export default function RootLayout({
 }) {
   const logo = require('./imgs/logo.png');
   const path = usePathname();
+  const [openDialog, setOpenDialog] = useState(false)
   const [open, setOpen] = useState(false)
   const isSidebarOpen = () => {
     setOpen(!open);
+  }
+  const handleDialog = () => {
+    setOpenDialog(!openDialog)
   }
   return (
     <html>
@@ -25,10 +32,13 @@ export default function RootLayout({
         <title>Home | Chess learners</title>
       </Head>
       <body>
+      <Dialog open={openDialog} className = "relative">
+          <FiX onClick = {handleDialog} className = "absolute right-5 top-5 text-2xl cursor-pointer"/>
+          <LoginForm />
+      </Dialog>
         <section className="max-w-7xl m-auto">
           <header className="px-8 flex items-center justify-between py-5">
             <div className="flex items-center gap-5 md:gap-12">
-              {/* <h1 class = "font-bold text-2xl">Residence.</h1> */}
               <Image src={logo} width={64} height={64} alt="logo" />
               <SlMenu className = "cursor-pointer md:hidden" onClick = {isSidebarOpen}></SlMenu>
               <Drawer
@@ -71,9 +81,9 @@ export default function RootLayout({
               </nav>
             </div>
             <div>
-              <a href="#" className="text-xs sm:text-sm md:text-base font-semibold py-3 px-7 hover:text-indigo-700">
+              <button onClick = {handleDialog} className="text-xs sm:text-sm md:text-base font-semibold py-3 px-7 hover:text-indigo-700">
                 Log In
-              </a>
+              </button>
               <button className="text-xs sm:text-sm md:text-base py-3 px-7 text-indigo-700 font-semibold border border-indigo-700">
                 Sign Up
               </button>
@@ -85,6 +95,7 @@ export default function RootLayout({
         <section>
           {children}
         </section>
+        
       </body>
     </html>
   )
