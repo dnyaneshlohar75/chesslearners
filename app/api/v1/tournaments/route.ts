@@ -1,5 +1,5 @@
 import db from "@/app/api/server";
-import { ObjectId } from "mongodb";
+import { ObjectId } from 'mongodb'
 import { NextRequest, NextResponse } from "next/server";
 
 //Connect to collection
