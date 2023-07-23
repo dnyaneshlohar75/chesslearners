@@ -1,20 +1,17 @@
 "use client"
-import React from 'react'
-import ContactForm from './sub/ContactForm'
-import { BiLogoFacebook, BiLogoInstagram, BiLogoWhatsapp, BiLogoYoutube } from 'react-icons/bi'
-import { SlPhone, SlEnvolope, SlLocationPin } from 'react-icons/sl'
-import { Tooltip } from '@mui/material'
-import Image from 'next/image'
+import React from "react"
+import ContactForm from "./sub/ContactForm"
+import { SlPhone, SlEnvolope, SlLocationPin } from "react-icons/sl"
 
 const About = () => {
-    const logo = require('../imgs/logo.png');
+    const logo = require("../imgs/logo.png");
     return (
         <section className="max-w-7xl m-auto">
             <div className="w-full p-12">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div className = "space-y-5">
                     <p className = "text-sm md:text-base text-justify text-gray-500">
-                        Chess Learner's Academy excels with an experienced team of international-level coaches, offering a comprehensive syllabus that enhances players from beginner to advanced levels. Supporting open FIDE rating tournaments, students achieve success in national and international chess competitions, guided to perfection in their pursuit of excellence.
+                        Chess Learners Academy excels with an experienced team of international-level coaches, offering a comprehensive syllabus that enhances players from beginner to advanced levels. Supporting open FIDE rating tournaments, students achieve success in national and international chess competitions, guided to perfection in their pursuit of excellence.
                     </p>
                     <div className="flex items-center gap-3">
                             <p className="p-3 bg-gray-50 rounded-sm">
