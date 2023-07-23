@@ -32,7 +32,7 @@ const LoginForm = () => {
         } catch (err) { }
     }
 
-    const logo = require("@/app/imgs/logo.png");
+    const logo = require("@/app/imgs/logo.png")
     return (
         <div className="flex flex-col items-center justify-between h-full p-10">
             <div className="flex flex-col items-center w-96 text-center">
