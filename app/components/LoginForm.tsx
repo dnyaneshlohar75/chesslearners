@@ -37,8 +37,7 @@ const LoginForm = () => {
         <div className="flex flex-col items-center justify-between h-full p-10">
             <div className="flex flex-col items-center w-96 text-center">
                 <Image src={logo} alt="logo" height={96} width={96} />
-                <h1 className="text-2xl font-bold mt-3">Hello Again!</h1>
-                <p className="text-xs min-w-96 text-gray-400 my-2 px-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime officia dolore architecto.</p>
+                <h1 className="text-2xl font-bold my-5">Hello Again!</h1>
             </div>
 
             <FormControl className="flex flex-col min-w-full gap-5">
