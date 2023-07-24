@@ -11,7 +11,7 @@ const Pricing = () => {
             </div>
 
             <div className='w-full flex flex-col items-center justify-center'>
-                <div className='grid sm:grid-cols-2 md:grid-cols-3 mt-8'>
+                <div className='grid sm:grid-cols-2 md:grid-cols-3 mt-8 gap-8'>
                     <div className='cursor-pointer transiton duration-200 rounded-md p-8 bg-white hover:shadow-md w-[300px]'>
                         <h1 className='text-3xl font-semibold'>Free*</h1>
                         <p className='text-gray-500 my-3'> Get your bussiness up <br />
