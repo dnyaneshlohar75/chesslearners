@@ -38,15 +38,15 @@ const LoginForm = () => {
             <div className="flex flex-col items-center w-96 text-center">
                 <Image src={logo} alt="logo" height={96} width={96} />
                 <h1 className="text-2xl font-bold mt-3">Hello Again!</h1>
-                <p className="text-sm text-gray-400 my-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime officia dolore architecto.</p>
+                <p className="text-xs min-w-96 text-gray-400 my-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime officia dolore architecto.</p>
             </div>
 
             <form className="flex flex-col min-w-full gap-5">
                 <TextField name="username" size="small" label="Email or Mobile Number" variant="outlined" required />
                 <TextField name="password" size="small" type="password" label="Ex., Pass@123" variant="outlined" required />
-                <div className='flex justify-between items-center'>
-                    <FormControlLabel control={<Checkbox />} label="Remember me" className='text-sm' />
-                    <a href="#" className='font-bold text-blue-500 text-sm'>Forgot Password</a>
+                <div className='flex justify-end md:justify-between items-center'>
+                    <FormControlLabel control={<Checkbox />} label="Remember me" className='hidden md:block text-xs' />
+                    <a href="#" className='font-bold text-blue-500 text-xs'>Forgot Password</a>
                 </div>
                 <Button className="bg-blue-600 text-white hover:text-blue-600 hover:outline-blue-600" type="submit"> Login </Button>
                 <Button variant="outlined" className='flex items-center gap-3'>
