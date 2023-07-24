@@ -41,7 +41,7 @@ const LoginForm = () => {
                 <p className="text-sm text-gray-400 my-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime officia dolore architecto.</p>
             </div>
 
-            <form className="flex flex-col w-96 gap-5">
+            <form className="flex flex-col min-w-full gap-5">
                 <TextField name="username" size="small" label="Email or Mobile Number" variant="outlined" required />
                 <TextField name="password" size="small" type="password" label="Ex., Pass@123" variant="outlined" required />
                 <div className='flex justify-between items-center'>

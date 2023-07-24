@@ -32,10 +32,6 @@ export default function RootLayout({
         <title>Home | Chess learners</title>
       </Head>
       <body>
-      <Dialog open={openDialog} className = "relative">
-          <FiX onClick = {handleDialog} className = "absolute right-5 top-5 text-2xl cursor-pointer"/>
-          <LoginForm />
-      </Dialog>
         <section className="max-w-7xl m-auto">
           <header className="px-8 flex items-center justify-between py-5">
             <div className="flex items-center gap-5 md:gap-12">
@@ -62,6 +58,11 @@ export default function RootLayout({
                   </ul>
                 </nav>
               </Drawer>
+              
+              <Dialog open={openDialog} className = "relative">
+                  <FiX onClick = {handleDialog} className = "absolute right-5 top-5 text-2xl cursor-pointer"/>
+                  <LoginForm />
+              </Dialog>
 
               <nav className="hidden md:block">
                 <ul className="flex items-center gap-12">
