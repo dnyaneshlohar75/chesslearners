@@ -58,11 +58,6 @@ export default function RootLayout({
                   </ul>
                 </nav>
               </Drawer>
-              
-              <Dialog open={openDialog} className = "relative">
-                  <FiX onClick = {handleDialog} className = "absolute right-5 top-5 text-2xl cursor-pointer"/>
-                  <LoginForm />
-              </Dialog>
 
               <nav className="hidden md:block">
                 <ul className="flex items-center gap-12">
@@ -85,6 +80,10 @@ export default function RootLayout({
               <button onClick = {handleDialog} className="text-xs sm:text-sm md:text-base font-semibold py-3 px-7 hover:text-indigo-700">
                 Log In
               </button>
+              <Dialog open={openDialog}>
+                  <FiX onClick = {handleDialog} className = "absolute right-5 top-5 text-2xl cursor-pointer"/>
+                  <LoginForm />
+              </Dialog>
               <button className="text-xs sm:text-sm md:text-base py-3 px-7 text-indigo-700 font-semibold border border-indigo-700">
                 Sign Up
               </button>

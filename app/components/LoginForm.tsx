@@ -1,7 +1,7 @@
 "use client"
 import React from 'react'
 import Image from 'next/image'
-import { Button, Checkbox, FormControlLabel, TextField } from '@mui/material'
+import { Button, Checkbox, FormControlLabel, TextField, FormControl } from '@mui/material'
 import { FcGoogle } from 'react-icons/fc'
 import Link from 'next/link'
 
@@ -38,10 +38,10 @@ const LoginForm = () => {
             <div className="flex flex-col items-center w-96 text-center">
                 <Image src={logo} alt="logo" height={96} width={96} />
                 <h1 className="text-2xl font-bold mt-3">Hello Again!</h1>
-                <p className="text-xs min-w-96 text-gray-400 my-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime officia dolore architecto.</p>
+                <p className="text-xs min-w-96 text-gray-400 my-2 px-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime officia dolore architecto.</p>
             </div>
 
-            <form className="flex flex-col min-w-full gap-5">
+            <FormControl className="flex flex-col min-w-full gap-5">
                 <TextField name="username" size="small" label="Email or Mobile Number" variant="outlined" required />
                 <TextField name="password" size="small" type="password" label="Ex., Pass@123" variant="outlined" required />
                 <div className='flex justify-end md:justify-between items-center'>
@@ -53,7 +53,7 @@ const LoginForm = () => {
                     <FcGoogle className='text-xl' />
                     <span>Sign in with google</span>
                 </Button>
-            </form>
+            </FormControl>
 
             <div className="mt-3 flex items-center gap-2 text-sm">
                 <span className="text-gray-500">Don&apos;t have an Account yet?</span>
