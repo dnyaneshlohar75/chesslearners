@@ -34,9 +34,6 @@ export async function POST(request: Request) {
 
     console.log(username, password);
 
-    const hash = createHash('sha256', password).update("IAMACHESSPLAYER").digest();
-    console.log(hash)
-
     return NextResponse.json({acknoweledge: true, body}, {
         status: 201,
     })

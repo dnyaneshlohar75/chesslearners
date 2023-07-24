@@ -10,6 +10,7 @@ import { SlMenu } from 'react-icons/sl'
 import Dialog from '@mui/material/Dialog';
 import { FiX } from 'react-icons/fi'
 import LoginForm from './components/LoginForm';
+import { Avatar } from '@mui/material';
 
 export default function RootLayout({
   children,
@@ -26,6 +27,8 @@ export default function RootLayout({
   const handleDialog = () => {
     setOpenDialog(!openDialog)
   }
+
+  const [isLogin, setIsLogin] = useState(true);
   return (
     <html>
       <Head>
@@ -41,8 +44,8 @@ export default function RootLayout({
                 open = {open}
                 onClose = {isSidebarOpen}
               >
-                <nav className="w-52">
-                  <ul className="flex flex-col gap-3">
+                <nav className="w-56">
+                  <ul className="gap-3">
                     <li className={`${!path.localeCompare('/') ? 'text-indigo-700 font-semibold' : 'text-gray-400'} w-full p-3 hover:bg-gray-50 text-gray-300 hover:text-indigo-700`}>
                       <Link href="/">Home</Link>
                     </li>
@@ -56,6 +59,22 @@ export default function RootLayout({
                       <Link href="#contact">Contact</Link>
                     </li>
                   </ul>
+                  {isLogin ?
+                    <ul>
+                      <hr />
+                      <li className={`${!path.localeCompare('profile') ? 'text-indigo-700 font-semibold' : 'text-gray-400'} w-full p-3 hover:bg-gray-50 text-gray-300 hover:text-indigo-700`}>
+                      <Link href="">Profile</Link>
+                      </li>
+                      <li className={`${!path.localeCompare('profile') ? 'text-indigo-700 font-semibold' : 'text-gray-400'} w-full p-3 hover:bg-gray-50 text-gray-300 hover:text-indigo-700`}>
+                      <Link href="">Settings</Link>
+                      </li>
+                      <li className={`${!path.localeCompare('profile') ? 'text-indigo-700 font-semibold' : 'text-gray-400'} w-full p-3 hover:bg-gray-50 text-gray-300 hover:text-indigo-700`}>
+                      <button onClick = {(e) => setIsLogin(false)} >Logout</button>
+                      </li>
+                    </ul>
+                  :
+                  null
+                  }
                 </nav>
               </Drawer>
 
@@ -76,18 +95,19 @@ export default function RootLayout({
                 </ul>
               </nav>
             </div>
+            {isLogin ? <Avatar sx = {{width: 32, height: 32}} />:
             <div>
               <button onClick = {handleDialog} className="text-xs sm:text-sm md:text-base font-semibold py-3 px-7 hover:text-indigo-700">
                 Log In
               </button>
               <Dialog open={openDialog}>
                   <FiX onClick = {handleDialog} className = "absolute right-5 top-5 text-2xl cursor-pointer"/>
-                  <LoginForm />
+                  <LoginForm handleSession = {setIsLogin}/>
               </Dialog>
               <button className="text-xs sm:text-sm md:text-base py-3 px-7 text-indigo-700 font-semibold border border-indigo-700">
                 Sign Up
               </button>
-            </div>
+            </div>}
           </header>
         </section>
 

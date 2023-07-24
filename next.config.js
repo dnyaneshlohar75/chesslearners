@@ -10,6 +10,6 @@ module.exports = {
         domains: ['images.wallpaperscraft.com', 'images.unsplash.com']
     },
     experimental: {
-        serverActions: false,
+        serverActions: true,
     },
 }
