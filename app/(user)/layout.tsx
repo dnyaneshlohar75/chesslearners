@@ -4,7 +4,7 @@ import {FiUser, FiBell, FiSettings } from 'react-icons/fi'
 import { GoRuby } from 'react-icons/go'
 import { usePathname } from 'next/navigation'
 
-const Layout = ({ children } : { children: React.ReactNode }) => {
+const ProfileLayout = ({ children } : { children: React.ReactNode }) => {
   const path = usePathname();
   return (
     <div className="grid grid-cols-12 gap-5 max-w-7xl m-auto px-8">
@@ -33,6 +33,24 @@ const Layout = ({ children } : { children: React.ReactNode }) => {
           </ul>
         </nav>
       </aside>
+      <aside className="sm:hidden md:hidden bg-white fixed left-0 bottom-0 border-t p-4 flex items-center justify-between w-full">
+        <nav className="w-full">
+          <ul className = "text-center flex items-center justify-evenly w-full">
+            <Link href = "/profile" className = {`${!path.localeCompare('/profile') ? 'bg-indigo-800 text-gray-50' : 'text-gray-400'} hover:bg-gray-50 hover:text-indigo-700 py-3 px-4 rounded-md flex items-center gap-3`}>
+                <FiUser />
+            </Link>
+            <Link href = "/myplan" className = {`${!path.localeCompare('/myplan') ? 'bg-indigo-800 text-gray-50' : 'text-gray-400'} hover:bg-gray-50 hover:text-indigo-700 py-3 px-4 rounded-md flex items-center gap-3`}>
+                <GoRuby />
+            </Link>
+            <Link href = "#" className = {`${!path.localeCompare('/nofications') ? 'bg-indigo-800 text-gray-50' : 'text-gray-400'} hover:bg-gray-50 hover:text-indigo-700 py-3 px-4 rounded-md flex items-center gap-3`}>
+                <FiBell />
+            </Link>
+            <Link href = "#" className = {`${!path.localeCompare('/settings') ? 'bg-indigo-800 text-gray-50' : 'text-gray-400'} hover:bg-gray-50 hover:text-indigo-700 py-3 px-4 rounded-md flex items-center gap-3`}>
+                <FiSettings />
+            </Link>
+          </ul>
+        </nav>
+      </aside>
       <section className="col-span-12 md:col-span-9">
           {children}
       </section>
@@ -40,4 +58,4 @@ const Layout = ({ children } : { children: React.ReactNode }) => {
   )
 }
 
-export default Layout;
+export default ProfileLayout;
