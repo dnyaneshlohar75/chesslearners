@@ -48,7 +48,7 @@ const ProfileCard = () => {
         //         </div>
         //     </div>
         // </div>
-        <div className="col-span-6 flex flex-col md:flex-row gap-8 items-center bg-white p-5 border rounded-md">
+    <div className="col-span-6 flex flex-col md:flex-row w-full items-center justify-center p-5 md:gap-12 bg-white border rounded-md">
     <div className="w-32 rounded-full overflow-hidden">
         <img
             className="w-full h-full object-cover"
@@ -56,7 +56,7 @@ const ProfileCard = () => {
             alt=""
         />
     </div>
-    <div className="flex-1">
+    <div className="flex-1 w-full">
         <h1 className="font-bold text-2xl mb-1 text-center md:text-left">Dnyanesh Lohar</h1>
         <p className="text-sm text-gray-400 text-center md:text-left">
             26<sup>th</sup> Nov 2001

@@ -6,11 +6,10 @@ import SocialLinksCard from '@/app/components/sub/Profile/SocialLinksCard'
 const ProfilePage = () => {
   return (
     <>
-      <div className="grid grid-cols-6 gap-5">
+      <div className="grid grid-cols-6 gap-5 mb-20">
         <ProfileCard />
         <PersonalInfoCard />
         <SocialLinksCard />
-      
       <div className="col-span-6 space-x-3">
         <button className="px-4 py-3 text-indigo-700 rounded-md font-medium text-sm bg-gray-100">
           Cancel
@@ -19,6 +18,7 @@ const ProfilePage = () => {
           Save changes
         </button>
       </div>
+      
       </div>
 
     </>

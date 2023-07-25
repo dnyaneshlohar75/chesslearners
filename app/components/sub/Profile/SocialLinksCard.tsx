@@ -5,7 +5,7 @@ import { FiFacebook, FiInstagram, FiTwitter } from 'react-icons/fi'
 const SocialLinksCard = () => {
     return (
         <div className="col-span-6 md:col-span-2 gap-8 bg-white p-5 border rounded-md">
-            <p className="text-center text-xs text-indigo-700 font-medium uppercase mb-5 md:text-left">
+            <p className="text-xs text-indigo-700 font-medium uppercase mb-5">
                 social links
             </p>
             <ul>

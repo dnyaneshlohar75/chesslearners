@@ -33,7 +33,7 @@ const ProfileLayout = ({ children } : { children: React.ReactNode }) => {
           </ul>
         </nav>
       </aside>
-      <aside className="sm:hidden md:hidden bg-white fixed left-0 bottom-0 border-t p-4 flex items-center justify-between w-full">
+      <aside className="sm:hidden md:hidden bg-white fixed left-0 bottom-0 border-t p-4 flex items-center justify-between w-full z-50">
         <nav className="w-full">
           <ul className = "text-center flex items-center justify-evenly w-full">
             <Link href = "/profile" className = {`${!path.localeCompare('/profile') ? 'bg-indigo-800 text-gray-50' : 'text-gray-400'} hover:bg-gray-50 hover:text-indigo-700 py-3 px-4 rounded-md flex items-center gap-3`}>
