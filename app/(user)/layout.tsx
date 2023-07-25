@@ -1,11 +1,10 @@
 "use client"
-import { useState } from 'react'
 import Link from 'next/link'
 import {FiUser, FiBell, FiSettings } from 'react-icons/fi'
 import { GoRuby } from 'react-icons/go'
 import { usePathname } from 'next/navigation'
 
-const layout = ({ children } : { children: React.ReactNode }) => {
+const Layout = ({ children } : { children: React.ReactNode }) => {
   const path = usePathname();
   return (
     <div className="grid grid-cols-12 gap-5 max-w-7xl m-auto px-8">
@@ -41,4 +40,4 @@ const layout = ({ children } : { children: React.ReactNode }) => {
   )
 }
 
-export default layout
+export default Layout;
