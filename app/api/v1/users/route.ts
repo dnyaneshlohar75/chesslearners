@@ -2,7 +2,7 @@ import db from "@/app/api/server";
 import { createHash } from "crypto";
 import { ObjectId } from "mongodb";
 import { NextRequest, NextResponse } from "next/server";
-
+import { redirect } from 'next/navigation'
 //Connect to collection
 const users = db.collection('users')
 export async function GET(request: NextRequest) {
@@ -34,7 +34,5 @@ export async function POST(request: Request) {
 
     console.log(username, password);
 
-    return NextResponse.json({acknoweledge: true, body}, {
-        status: 201,
-    })
+    redirect("/(login)/profile");
 }

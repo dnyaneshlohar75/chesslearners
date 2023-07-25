@@ -28,7 +28,7 @@ export default function RootLayout({
     setOpenDialog(!openDialog)
   }
 
-  const [isLogin, setIsLogin] = useState(true);
+  const [isLogin, setIsLogin] = useState(false);
   return (
     <html>
       <Head>
