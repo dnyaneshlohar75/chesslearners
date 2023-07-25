@@ -14,7 +14,7 @@ const layout = ({ children } : { children: React.ReactNode }) => {
           <p className="text-center text-xs text-indigo-700 font-medium uppercase mb-5 md:text-left">
             dashboard
           </p>
-          <ul className="text-center md:text-left space-y-3">
+          <ul className = "text-center md:text-left space-y-3">
             <Link href = "/profile" className = {`${!path.localeCompare('/profile') ? 'bg-indigo-800 text-gray-50' : 'text-gray-400'} hover:bg-gray-50 hover:text-indigo-700 py-3 px-4 rounded-md flex items-center gap-3`}>
                 <FiUser />
                 <span className="hidden md:inline ml-5">Profile</span>
@@ -38,8 +38,6 @@ const layout = ({ children } : { children: React.ReactNode }) => {
           {children}
       </section>
     </div>
-
-
   )
 }
 
