@@ -4,7 +4,6 @@ import ContactForm from "./sub/ContactForm"
 import { SlPhone, SlEnvolope, SlLocationPin } from "react-icons/sl"
 
 const About = () => {
-    const logo = require("../imgs/logo.png");
     return (
         <section className="max-w-7xl m-auto">
             <div className="w-full p-12">
@@ -17,7 +16,7 @@ const About = () => {
                             <p className="p-3 bg-gray-50 rounded-sm">
                                 <SlPhone className="text-2xl text-indigo-700" />
                             </p>
-                            <a href="callto:www.chesslearnersacademy@gmail.com" className="flex-1 text-gray-500 text-sm md:text-base">
+                            <a href="cell:www.chesslearnersacademy@gmail.com" className="flex-1 text-gray-500 text-sm md:text-base">
                                 +91 911 9548 629
                             </a>
                         </div>

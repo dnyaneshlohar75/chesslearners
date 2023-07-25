@@ -28,7 +28,7 @@ export default function RootLayout({
     setOpenDialog(!openDialog)
   }
 
-  const [isLogin, setIsLogin] = useState(false);
+  const [isLogin, setIsLogin] = useState(true);
   return (
     <html>
       <Head>
@@ -59,22 +59,6 @@ export default function RootLayout({
                       <Link href="#contact">Contact</Link>
                     </li>
                   </ul>
-                  {isLogin ?
-                    <ul>
-                      <hr />
-                      <li className={`${!path.localeCompare('profile') ? 'text-indigo-700 font-semibold' : 'text-gray-400'} w-full p-3 hover:bg-gray-50 text-gray-300 hover:text-indigo-700`}>
-                      <Link href="">Profile</Link>
-                      </li>
-                      <li className={`${!path.localeCompare('profile') ? 'text-indigo-700 font-semibold' : 'text-gray-400'} w-full p-3 hover:bg-gray-50 text-gray-300 hover:text-indigo-700`}>
-                      <Link href="">Settings</Link>
-                      </li>
-                      <li className={`${!path.localeCompare('profile') ? 'text-indigo-700 font-semibold' : 'text-gray-400'} w-full p-3 hover:bg-gray-50 text-gray-300 hover:text-indigo-700`}>
-                      <button onClick = {(e) => setIsLogin(false)} >Logout</button>
-                      </li>
-                    </ul>
-                  :
-                  null
-                  }
                 </nav>
               </Drawer>
 
@@ -95,7 +79,7 @@ export default function RootLayout({
                 </ul>
               </nav>
             </div>
-            {isLogin ? <Avatar sx = {{width: 32, height: 32}} />:
+            {isLogin ? <Link href = "/profile"><Avatar sx = {{width: 32, height: 32}} /></Link> :
             <div>
               <button onClick = {handleDialog} className="text-xs sm:text-sm md:text-base font-semibold py-3 px-7 hover:text-indigo-700">
                 Log In
@@ -107,7 +91,8 @@ export default function RootLayout({
               <button className="text-xs sm:text-sm md:text-base py-3 px-7 text-indigo-700 font-semibold border border-indigo-700">
                 Sign Up
               </button>
-            </div>}
+            </div>
+            }
           </header>
         </section>
 
