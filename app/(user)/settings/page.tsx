@@ -47,7 +47,7 @@ const Settings = () => {
                     />
                     {pass ? validPassword ? <p className = "text-green-500 text-xs md:text-sm">Password Varified</p> : <p className = "text-red-500 text-xs md:text-sm">Password Invalid</p> : null}
                     <form action="" className = "py-3">
-                        <div className = "flex items-center justify-between gap-5">
+                        <div className = "flex flex-col sm:flex-row md:flex-row sm:items-center md:items-center sm:justify-between md:justify-between gap-5">
                             <div className = "w-full">
                                 <p className="font-semibold text-sm my-1">New Password <span className = "text-red-400">*</span></p>
                                 <TextField
