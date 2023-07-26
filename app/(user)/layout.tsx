@@ -7,8 +7,8 @@ import { usePathname } from 'next/navigation'
 const ProfileLayout = ({ children } : { children: React.ReactNode }) => {
   const path = usePathname();
   return (
-    <div className="grid grid-cols-12 gap-5 max-w-7xl m-auto px-8">
-      <aside className="hidden col-span-3 p-4 h-full md:flex flex-col items-center justify-between md:w-72">
+    <div className="flex  gap-5 max-w-7xl m-auto px-8">
+      <aside className="hidden p-4 h-full md:flex flex-col items-center justify-between md:w-72">
         <nav className="w-full">
           <p className="text-center text-xs text-indigo-700 font-medium uppercase mb-5 md:text-left">
             dashboard
@@ -26,7 +26,7 @@ const ProfileLayout = ({ children } : { children: React.ReactNode }) => {
                 <FiBell />
                 <span className="hidden md:inline ml-5">Notifications</span>
             </Link>
-            <Link href = "#" className = {`${!path.localeCompare('/settings') ? 'bg-indigo-800 text-gray-50' : 'text-gray-400'} hover:bg-gray-50 hover:text-indigo-700 py-3 px-4 rounded-md flex items-center gap-3`}>
+            <Link href = "/settings" className = {`${!path.localeCompare('/settings') ? 'bg-indigo-800 text-gray-50' : 'text-gray-400'} hover:bg-gray-50 hover:text-indigo-700 py-3 px-4 rounded-md flex items-center gap-3`}>
                 <FiSettings />
                 <span className="hidden md:inline ml-5">Settings</span>
             </Link>
@@ -45,13 +45,13 @@ const ProfileLayout = ({ children } : { children: React.ReactNode }) => {
             <Link href = "#" className = {`${!path.localeCompare('/nofications') ? 'bg-indigo-800 text-gray-50' : 'text-gray-400'} hover:bg-gray-50 hover:text-indigo-700 py-3 px-4 rounded-md flex items-center gap-3`}>
                 <FiBell />
             </Link>
-            <Link href = "#" className = {`${!path.localeCompare('/settings') ? 'bg-indigo-800 text-gray-50' : 'text-gray-400'} hover:bg-gray-50 hover:text-indigo-700 py-3 px-4 rounded-md flex items-center gap-3`}>
+            <Link href = "/settings" className = {`${!path.localeCompare('/settings') ? 'bg-indigo-800 text-gray-50' : 'text-gray-400'} hover:bg-gray-50 hover:text-indigo-700 py-3 px-4 rounded-md flex items-center gap-3`}>
                 <FiSettings />
             </Link>
           </ul>
         </nav>
       </aside>
-      <section className="col-span-12 md:col-span-9">
+      <section className="w-full">
           {children}
       </section>
     </div>
