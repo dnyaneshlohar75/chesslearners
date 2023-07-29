@@ -4,12 +4,12 @@ const transporter = nodemailer.createTransport({
     service: "Gmail",
     // port: 465,
     auth: {
-        user: process.env.GOOGLE_EMAIL_ID as string,
-        pass: process.env.GOOGLE_EMAIL_SECRET as string
+        user: process.env.GOOGLE_EMAIL_ID,
+        pass: process.env.GOOGLE_EMAIL_SECRET
     }
 });
 
-async function send(userEmailAddress: any, subject:any, text:any) {
+async function send(userEmailAddress, subject, text) {
     const info = await transporter.sendMail({
         // send mail with defined transport object
         from: '"Chess Learners Academy" <dnalohar@gmail.com>', // sender address
