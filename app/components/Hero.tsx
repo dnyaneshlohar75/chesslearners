@@ -1,6 +1,7 @@
 "use client"
 import React from 'react'
 import { FaPlay } from 'react-icons/fa6'
+import { useSession } from 'next-auth/react'
 const Hero = () => {
   return (
     <section className="max-w-7xl m-auto my-12 px-8">

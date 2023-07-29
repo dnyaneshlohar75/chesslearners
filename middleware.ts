@@ -1,41 +1,40 @@
-// import { request } from "http";
-// import { NextResponse } from "next/server";
-// export const middleware = (request:any) => {
-//     const origin = request.headers.get('origin');
-//     console.log(origin);
+import { withAuth } from "next-auth/middleware";
+import { useSession } from "next-auth/react";
+import { NextRequest, NextResponse } from "next/server";
+import { URL } from "url";
 
-//     const response = NextResponse.next();
-//     response.headers.set('Access-Control-Allow-Origin', '*');
-//     response.headers.set('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-//     response.headers.set('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-//     response.headers.set('Access-Control-Max-Age', '86400');
+export default withAuth(
+    function middleware(req: NextRequest) {
+        //
+        if(req.nextUrl.pathname.includes("/user/")) {
+            console.log("Next Middleware Hit!")
+        }
+        
+        return NextResponse.redirect("/");
+    },
+)
 
-//     console.log('Middleware!');
-//     console.log(request.method);
-//     console.log(request.url);
-// }
 
-// export const config = {
-//     matcher: '/api/:path=*',
-// };
 
-import { NextRequest, NextResponse } from 'next/server'
- 
-export function middleware(request:Request) {
-
+export const middleware = (request : Request) => {
     const origin = request.headers.get('origin');
+    console.log(origin);
+
     const response = NextResponse.next();
-    
     response.headers.set('Access-Control-Allow-Origin', '*');
     response.headers.set('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
     response.headers.set('Access-Control-Allow-Headers', 'Content-Type, Authorization');
     response.headers.set('Access-Control-Max-Age', '86400');
-    
-    console.log('Middleware Hit!');
-    return response;
+
+    console.log('Middleware!');
 }
- 
-// See "Matching Paths" below to learn more
+
 export const config = {
-  matcher: "/api/:path*",
-}
+    matcher: ["/api/:path*"],
+};
+
+
+// // See "Matching Paths" below to learn more
+// export const config = {
+//   matcher: ["/user/:path*"],
+// }

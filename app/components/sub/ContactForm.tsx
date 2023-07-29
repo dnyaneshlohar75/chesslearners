@@ -5,25 +5,20 @@ import { Toaster } from 'react-hot-toast'
 import toast from 'react-hot-toast';
 const notify = () => toast('Here is your toast.');
 
-const handleSubmit = async (formData) => {
+const handleSubmit = async (formData:FormData) => {
 
     const firstName = formData.get("contactFormFirstName") || '';
     const lastName = formData.get("contactFormLastName");
-    const emailId = formData.get("contactFormEmailId");
+    const emailId = formData.get("contactFormEmailId");``
     const mobileNum = formData.get("contactFormMobileNumber");
     const subject = formData.get("contactFormSubject");
     const message = formData.get("contactFormMessage");
 
     try {
-        const sendDataAPI = await fetch("/api/contact", {
-            body: {
-                firstName,
-                lastName,
-                emailId,
-                mobileNum,
-                subject,
-                message,
-            },
+        const sendDataAPI = await fetch("/api/v1/contact", {
+            body: JSON.stringify({
+                firstName, lastName, emailId, mobileNum, subject, message,
+            }),
             method: "POST",
             headers: {
                 'Content-Type': 'multipart/formdata',
@@ -44,7 +39,7 @@ const contactForm = () => {
     return (
         <div>
             <Toaster />
-            <form method={"POST"} action={handleSubmit} className='flex flex-col gap-4 relative top-0'>
+            <form action={handleSubmit} className='flex flex-col gap-4 relative top-0'>
                 <div className='grid grid-cols-2 gap-5'>
                     <TextField id="outlined-basic" name="contactFormFirstName" label="First Name" variant="outlined" size='small' required />
                     <TextField id="outlined-basic" name="contactFormLastName" label="Last Name" variant="outlined" size='small' required />

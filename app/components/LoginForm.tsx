@@ -2,6 +2,7 @@
 import React from 'react'
 import Image from 'next/image'
 import { Button, Checkbox, FormControlLabel, TextField } from '@mui/material'
+import { signIn } from 'next-auth/react';
 import { FcGoogle } from 'react-icons/fc'
 import Link from 'next/link'
 
@@ -16,7 +17,7 @@ const LoginForm = ({handleSession}:any) => {
             console.error("Password is required")
         }
         console.log(username, password);
-
+    
         try {
             const req = await fetch('/api/v1/users', {
                 method: "POST",
@@ -27,11 +28,10 @@ const LoginForm = ({handleSession}:any) => {
             });
             const res = await req.json();
             handleSession(res.acknoweledge);
-
+    
         } catch (err) {}
     }
-
-    const logo = require("@/app/imgs/logo.png")
+    const logo = require("@/app/imgs/logo.png");
 
     return (
         <div className="flex flex-col items-center justify-between h-full p-10">
@@ -40,7 +40,7 @@ const LoginForm = ({handleSession}:any) => {
                 <h1 className="text-2xl font-bold my-5">Hello Again!</h1>
             </div>
 
-            <form method = "POST" action = {sendLoginDetails} className="flex flex-col min-w-full gap-5">
+            <form method = "POST" action = {() => sendLoginDetails} className="flex flex-col min-w-full gap-5">
                 <TextField name="username" size="small" label="Email or Mobile Number" variant="outlined" required />
                 <TextField name="password" size="small" type="password" label="Ex., Pass@123" variant="outlined" required />
                 <div className='flex justify-end md:justify-between items-center'>
@@ -48,7 +48,7 @@ const LoginForm = ({handleSession}:any) => {
                     <a href="#" className='font-bold text-blue-500 text-xs'>Forgot Password</a>
                 </div>
                 <Button className="bg-blue-600 text-white hover:text-blue-600 hover:outline-blue-600" type="submit"> Login </Button>
-                <Button variant="outlined" className='flex items-center gap-3'>
+                <Button onClick = {() => signIn("google")} variant="outlined" className='flex items-center gap-3'>
                     <FcGoogle className='text-xl' />
                     <span>Sign in with google</span>
                 </Button>

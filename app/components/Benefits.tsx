@@ -10,7 +10,7 @@ const Benefits = () => {
                     <div className='bg-indigo-500 w-12 h-1 my-3' />
                     {/* <p class = "text-gray-400 text-lg">See the feature properties and explore all of that to know more<br />about our real estate properties very easily.</p> */}
                 </div>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6 md:gap-12">
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 sm:gap-6 md:gap-12">
                     <div className="flex items-center justify-center flex-col p-5 w-40 h-40 md:w-52 md:h-52 transform hover:-translate-y-1 transition-all duration-200 ease-in-out cursor-pointer hover:bg-slate-50">
                         <FaLightbulb className="text-red-500 text-5xl mb-5" />
                         <h1 className="text-gray-400">Creativity</h1>

@@ -1,38 +1,37 @@
 import db from "@/app/api/server";
-import { ObjectId } from "mongodb";
 import { NextRequest, NextResponse } from "next/server";
-import { redirect } from 'next/navigation'
 
 //Connect to collection
 const users = db.collection('users')
-export async function GET(request: NextRequest) {
-    try {
-        const userId = request.nextUrl.searchParams.get('userid') || '';
-        if(userId == null || !userId) {
-            return NextResponse.json({msg: "No userId pass"})
-        }
 
-        //Get All Users
-        const getAllUserDetails = await users.findOne({
-            '_id' : new ObjectId(userId)
-        });
-        
-        //Send Response to User
-        return NextResponse.json(getAllUserDetails);
-    }
-    catch(err) {
-        return NextResponse.json({status: 500, msg: "Internal Server Error"}, {
-            status: 500
-        })
-    }
+export async function GET(request: Request) {
+    const {email} = await request.json();
+    console.log(email);
+    // const userExist = await users.findOne({ email: searchParam })
+
+    return NextResponse.json(email, {
+        status: 200
+    })
 }
 
 export async function POST(request: Request) {
-    const body = await request.json();
-    const username = body.username;
-    const password = body.password;
+    const { email, name, image } = await request.json();
 
-    console.log(username, password);
+    const userExist = await users.findOne({ email });
 
-    redirect("/(login)/profile");
+    if (!userExist) {
+        const resp = await users.insertOne({
+            email,
+            name,
+            image
+        });
+
+        return NextResponse.json({ resp }, {
+            status: 201,
+        })
+    }
+
+    return NextResponse.json({ userExist }, {
+        status: 200
+    })
 }
