@@ -9,7 +9,8 @@ import Dialog from '@mui/material/Dialog';
 import { FiX, FiLogOut } from 'react-icons/fi'
 import LoginForm from './LoginForm';
 import { Avatar, Tooltip } from '@mui/material';
-import { useSession, signOut } from 'next-auth/react'
+import { signIn, useSession, signOut } from 'next-auth/react'
+import SignUpForm from './SignUpForm';
 
 const Navbar = () => {
   const logo = require('@/app/imgs/logo.png');
@@ -17,8 +18,8 @@ const Navbar = () => {
   const session = useSession();
   
   const [drawerOpen, setDrawerOpen] = React.useState(false);
-  const [openDialog, setOpenDialog] = React.useState(false);
-
+  const [loginFormDialog, setLoginFormDialog] = React.useState(false);
+  const [signUpFormDialog, setSignUpFormDialog] = React.useState(false);
   return (
     <section className="max-w-7xl m-auto">          
           <header className="px-8 flex items-center justify-between py-5">
@@ -82,16 +83,20 @@ const Navbar = () => {
             </div>
             :
             <div>
-              <button onClick = {() => setOpenDialog(true)} className="text-xs sm:text-sm md:text-base font-semibold py-3 px-7 hover:text-indigo-700">
+              <button onClick = {() => setLoginFormDialog(true)} className="text-xs sm:text-sm md:text-base font-semibold py-3 px-7 hover:text-indigo-700">
                 Log In
               </button>
-              <Dialog open = {openDialog} onClose = {() => setOpenDialog(false)}>
-                  <FiX onClick = {() => setOpenDialog(false)} className = "absolute right-5 top-5 text-2xl cursor-pointer"/>
-                  <LoginForm/>
+              <Dialog open = {loginFormDialog} onClose = {() => setLoginFormDialog(false)}>
+                  <FiX onClick = {() => setLoginFormDialog(false)} className = "absolute right-5 top-5 text-2xl cursor-pointer"/>
+                  <LoginForm />
               </Dialog>
-              <button className="text-xs sm:text-sm md:text-base py-3 px-7 text-indigo-700 font-semibold border border-indigo-700">
+              <button onClick = { () => setSignUpFormDialog(true)} className="text-xs sm:text-sm md:text-base py-3 px-7 text-indigo-700 font-semibold border border-indigo-700">
                 Sign Up
               </button>
+              <Dialog open = {signUpFormDialog} onClose = {() => setSignUpFormDialog(false)}>
+                  <FiX onClick = {() => setSignUpFormDialog(false)} className = "absolute right-5 top-5 text-2xl cursor-pointer"/>
+                  <SignUpForm />
+              </Dialog>
             </div>
             }
           </header>

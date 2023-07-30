@@ -1,0 +1,32 @@
+import { ObjectId } from 'mongodb'
+import NextAuth from 'next-auth'
+
+declare module "next-auth" {
+   interface Session {
+        user : {
+            _id: ObjectId,
+            name: string,
+            role: string,
+            email: string,
+            mobilenum: number,
+            fiderating: number,
+            image: string,
+            dob: Date,
+            clubname: string,
+            sociallinks : {
+                website: string,                
+                facebook: string,
+                instagram: string,
+                twitter: string,
+                thread: string
+            },
+            course : {
+                name: string,
+                expires: Date,
+            },
+            password: string,
+            accessToken: string,
+        }
+   }
+
+}

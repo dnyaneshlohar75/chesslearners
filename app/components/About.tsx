@@ -16,7 +16,7 @@ const About = () => {
                             <p className="p-3 bg-gray-50 rounded-sm">
                                 <SlPhone className="text-2xl text-indigo-700" />
                             </p>
-                            <a href="cell:www.chesslearnersacademy@gmail.com" className="flex-1 text-gray-500 text-sm md:text-base">
+                            <a href="tel:+919119548629" className="flex-1 text-gray-500 text-sm md:text-base">
                                 +91 911 9548 629
                             </a>
                         </div>
