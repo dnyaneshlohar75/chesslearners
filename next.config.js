@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {}
 
+<<<<<<< HEAD
 module.exports = {
     nextConfig,
     plugins: [
@@ -13,3 +14,6 @@ module.exports = {
         serverActions: true,
     },
 }
+=======
+module.exports = nextConfig
+>>>>>>> 0a66f72 (Initial commit from Create Next App)
